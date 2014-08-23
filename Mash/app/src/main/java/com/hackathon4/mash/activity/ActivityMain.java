@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.hackathon4.mash.MyCategoryView;
 import com.hackathon4.mash.R;
 
 public class ActivityMain extends Activity {
@@ -17,42 +18,58 @@ public class ActivityMain extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button cat1Button = (Button) findViewById(R.id.addToCategory1);
-        cat1Button.setOnClickListener(new View.OnClickListener() {
+        MyCategoryView categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
+        Button catNwButton = (Button) categoryViewNw.findViewById(R.id.addToCategory);
+        catNwButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Bundle bundle = new Bundle();
+                bundle.putString("category", "Boys");
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
 
-        final Button cat2Button = (Button) findViewById(R.id.addToCategory2);
-        cat2Button.setOnClickListener(new View.OnClickListener() {
+        MyCategoryView categoryViewSw = (MyCategoryView) findViewById(R.id.categorySw);
+        Button catSwButton = (Button) categoryViewSw.findViewById(R.id.addToCategory);
+        catSwButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Bundle bundle = new Bundle();
+                bundle.putString("category", "Careers");
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
 
-        final Button cat3Button = (Button) findViewById(R.id.addToCategory3);
-        cat3Button.setOnClickListener(new View.OnClickListener() {
+        MyCategoryView categoryViewNe = (MyCategoryView) findViewById(R.id.categoryNe);
+        Button catNeButton = (Button) categoryViewNe.findViewById(R.id.addToCategory);
+        catNeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Bundle bundle = new Bundle();
+                bundle.putString("category", "Cities");
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
 
-        final Button cat4Button = (Button) findViewById(R.id.addToCategory4);
-        cat4Button.setOnClickListener(new View.OnClickListener() {
+        MyCategoryView categoryViewSe = (MyCategoryView) findViewById(R.id.categorySe);
+        Button catSeButton = (Button) categoryViewSe.findViewById(R.id.addToCategory);
+        catSeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Bundle bundle = new Bundle();
+                bundle.putString("category", "Kids");
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -72,7 +89,5 @@ public class ActivityMain extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 
 }
