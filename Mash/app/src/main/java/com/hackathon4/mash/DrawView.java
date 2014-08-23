@@ -17,9 +17,6 @@ import com.hackathon4.mash.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * TODO: document your custom view class.
- */
 public class DrawView extends View implements View.OnTouchListener {
 
     private static final String TAG = DrawView.class.getName();
@@ -32,7 +29,9 @@ public class DrawView extends View implements View.OnTouchListener {
     Point startIntersectPath;
     Point endIntersectPath;
 
-    DrawingListener listener;
+//    DrawingListener listener;
+
+    boolean drawingEnabled = false;
 
     public DrawView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -71,26 +70,27 @@ public class DrawView extends View implements View.OnTouchListener {
     }
 
     public boolean onTouch(View view, MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            clear();
-        }
-        if (event.getAction() != MotionEvent.ACTION_UP) {
-            for (int i = 0; i < event.getHistorySize(); i++) {
-                Point point = new Point();
-                point.x = event.getHistoricalX(i);
-                point.y = event.getHistoricalY(i);
-                points.add(point);
+        if (drawingEnabled) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                clear();
             }
-            invalidate();
-            return true;
-        }
-        else {
-            int intersectionsCount = computeIntersections();
-            if (listener != null) {
-                listener.drawingStopped(intersectionsCount);
+            if (event.getAction() != MotionEvent.ACTION_UP) {
+                for (int i = 0; i < event.getHistorySize(); i++) {
+                    Point point = new Point();
+                    point.x = event.getHistoricalX(i);
+                    point.y = event.getHistoricalY(i);
+                    points.add(point);
+                }
+                invalidate();
+                return true;
             }
         }
         return super.onTouchEvent(event);
+    }
+
+    public int stopDrawing() {
+        drawingEnabled = false;
+        return computeIntersections();
     }
 
     public void clear() {
@@ -183,9 +183,9 @@ public class DrawView extends View implements View.OnTouchListener {
         return intersectionsCount;
     }
 
-    public void setListener(DrawingListener listener) {
-        this.listener = listener;
-    }
+//    public void setListener(DrawingListener listener) {
+//        this.listener = listener;
+//    }
 
     private boolean intersects(Point start1, Point end1, Point start2, Point end2) {
 
@@ -262,9 +262,9 @@ public class DrawView extends View implements View.OnTouchListener {
         }
     }
 
-    public interface DrawingListener {
-        void drawingStopped(int numberOfIntersections);
-    }
+//    public interface DrawingListener {
+//        void drawingStopped(int numberOfIntersections);
+//    }
 
     class Point {
         float x, y;
