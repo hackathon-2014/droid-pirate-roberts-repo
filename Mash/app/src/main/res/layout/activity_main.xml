@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/windowBackground"
-    android:orientation="vertical">
+    android:layout_above="@+id/relativeLayout"
+    android:layout_alignEnd="@+id/relativeLayout4"
+    tools:context="com.hackathon4.mash.RunActivity">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        android:orientation="vertical">
 
-    <Button android:id="@+id/addToCategory1"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@color/button_background"
-        android:layout_margin="@dimen/button_margin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/add_category1" />
+        <Button android:id="@+id/addToCategory1"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/button_background"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/add_category1" />
 
-    <Button android:id="@+id/addToCategory2"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@color/button_background"
-        android:layout_margin="@dimen/button_margin"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/add_category2" />
+        <Button android:id="@+id/addToCategory2"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/button_background"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/add_category2" />
 
-    <Button android:id="@+id/addToCategory3"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@color/button_background"
-        android:layout_margin="@dimen/button_margin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:text="@string/add_category3" />
+        <Button android:id="@+id/addToCategory3"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/button_background"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/add_category3" />
 
-    <Button android:id="@+id/addToCategory4"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@color/button_background"
-        android:layout_margin="@dimen/button_margin"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:text="@string/add_category4" />
+        <Button android:id="@+id/addToCategory4"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/button_background"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/add_category4" />
 
-</RelativeLayout>
+    </RelativeLayout>
+
+    <com.hackathon4.mash.DrawView
+        android:id="@+id/drawview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+</FrameLayout>
