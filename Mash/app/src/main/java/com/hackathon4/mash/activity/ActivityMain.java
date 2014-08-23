@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.hackathon4.mash.CategoryManager;
 import com.hackathon4.mash.DrawView;
 import com.hackathon4.mash.MyCategoryView;
 import com.hackathon4.mash.R;
@@ -78,11 +79,11 @@ public class ActivityMain extends Activity {
                 startActivityForResult(intent, 4);
             }
         });
-
-        populateView(R.id.categoryNw, "Crushes", new String[]{"Bob", "Tom", "Henry", "Joe"});
-        populateView(R.id.categorySw, "Job", new String[]{"Doctor", "Nurse", "Janitor", "Hobo"});
-        populateView(R.id.categoryNe, "Car", new String[]{"Lamborghini", "Lexus", "Focus", "Gremlin"});
-        populateView(R.id.categorySe, "City", new String[]{"Paris", "Charleston", "Albequequee", "North Pole"});
+//
+//        populateView(R.id.categoryNw, "Boys", new String[]{"Bob", "Tom", "Henry", "Joe"});
+//        populateView(R.id.categorySw, "Career", new String[]{"Doctor", "Nurse", "Janitor", "Hobo"});
+//        populateView(R.id.categoryNe, "Cities", new String[]{"Lamborghini", "Lexus", "Focus", "Gremlin"});
+//        populateView(R.id.categorySe, "Kids", new String[]{"1", "2", "3", "4"});
 
         tvMagicNumber = (TextView) findViewById(R.id.magicNumber);
 
@@ -102,32 +103,6 @@ public class ActivityMain extends Activity {
                 tvMagicNumber.setText(String.valueOf(numberOfIntersections));
             }
         });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 1){
-            MyCategoryView categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
-            categoryViewNw.addListItems(data.getStringArrayExtra("strings"));
-        }
-
-        if (requestCode == 2){
-            MyCategoryView categoryViewSw = (MyCategoryView) findViewById(R.id.categorySw);
-            categoryViewSw.addListItems(data.getStringArrayExtra("strings"));
-        }
-
-        if (requestCode == 3){
-            MyCategoryView categoryViewNe = (MyCategoryView) findViewById(R.id.categoryNe);
-            categoryViewNe.addListItems(data.getStringArrayExtra("strings"));
-        }
-
-        if (requestCode == 4){
-            MyCategoryView categoryViewSe = (MyCategoryView) findViewById(R.id.categorySe);
-            categoryViewSe.addListItems(data.getStringArrayExtra("strings"));
-        }
-
     }
 
     @Override

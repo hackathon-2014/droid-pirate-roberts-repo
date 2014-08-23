@@ -23,6 +23,7 @@ import com.hackathon4.mash.activity.ActivityEditCategory;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -89,4 +90,5 @@ public class MyCategoryView extends RelativeLayout {
             itemsLayout.addView(tv);
         }
     }
+
 }
