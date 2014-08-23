@@ -13,7 +13,8 @@
         android:layout_margin="@dimen/button_margin"
         android:layout_alignParentTop="true"
         android:text="@string/add_category1"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:textSize="32dp"/>
 
     <LinearLayout
         android:orientation="vertical"

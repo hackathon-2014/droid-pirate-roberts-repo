@@ -85,8 +85,12 @@ public class MyCategoryView extends RelativeLayout {
         itemsLayout = (LinearLayout) findViewById(R.id.itemLayout);
 
         for (String s: items){
-            TextView tv = new TextView(getContext());
+            LayoutInflater li = (LayoutInflater) getContext()
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            TextView tv = //new TextView(getContext());
+                    (TextView ) li.inflate(R.layout.item_template, null);
             tv.setText(s);
+
             itemsLayout.addView(tv);
         }
     }
