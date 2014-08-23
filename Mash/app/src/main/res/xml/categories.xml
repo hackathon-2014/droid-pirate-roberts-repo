@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<categories>
+    <category>
+        <position>1</position>
+        <name>Boys</name>
+        <narratives>
+            <narrative>
+                <story>is a professional athlete.</story>
+                <weight>10</weight>
+            </narrative>
+            <narrative>
+                <story>is an astronaut.</story>
+                <weight>9</weight>
+            </narrative>
+            <narrative>
+                <story>is a doctor.</story>
+                <weight>8</weight>
+            </narrative>
+            <narrative>
+                <story>is a lawyer.</story>
+                <weight>7</weight>
+            </narrative>
+            <narrative>
+                <story>is secretly the Droid Pirate Roberts.</story>
+                <weight>6</weight>
+            </narrative>
+            <narrative>
+                <story>is a teacher.</story>
+                <weight>5</weight>
+            </narrative>
+            <narrative>
+                <story>is a repair man.</story>
+                <weight>4</weight>
+            </narrative>
+            <narrative>
+                <story>is a garbage man.</story>
+                <weight>3</weight>
+            </narrative>
+            <narrative>
+                <story>is a sales clerk at Wal-Mart.</story>
+                <weight>2</weight>
+            </narrative>
+            <narrative>
+                <story>is a hobo.</story>
+                <weight>1</weight>
+            </narrative>
+        </narratives>
+    </category>
+    <category>
+        <position>2</position>
+        <name>Career</name>
+        <narratives>
+            <narrative>
+                <story>are a professional athlete.</story>
+                <weight>10</weight>
+            </narrative>
+            <narrative>
+                <story>are an astronaut.</story>
+                <weight>9</weight>
+            </narrative>
+            <narrative>
+                <story>are a senator</story>
+                <weight>8</weight>
+            </narrative>
+            <narrative>
+                <story>are a doctor.</story>
+                <weight>7</weight>
+            </narrative>
+            <narrative>
+                <story>are a lawyer.</story>
+                <weight>6</weight>
+            </narrative>
+            <narrative>
+                <story>are an engineer.</story>
+                <weight>5</weight>
+            </narrative>
+            <narrative>
+                <story>are a teacher.</story>
+                <weight>4</weight>
+            </narrative>
+            <narrative>
+                <story>are a pirate.</story>
+                <weight>3</weight>
+            </narrative>
+            <narrative>
+                <story>are a General Manager of a Dollar store.</story>
+                <weight>2</weight>
+            </narrative>
+            <narrative>
+                <story>are a wandering soul diving dumpsters to make a living.</story>
+                <weight>1</weight>
+            </narrative>
+        </narratives>
+    </category>
+
+</categories>

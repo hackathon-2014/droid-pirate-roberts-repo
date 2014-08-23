@@ -2,4 +2,5 @@
 <resources>
     <color name="windowBackground">#E958E0</color>
     <color name="penColor">#0FFF31</color>
+    <color name="button_background">#A2FD90</color>
 </resources>
