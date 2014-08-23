@@ -1,4 +1,4 @@
-package com.hackathon4.mash;
+package com.hackathon4.mash.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,19 +7,24 @@ import android.view.MenuItem;
 
 import com.hackathon4.mash.R;
 
-public class RunActivity extends Activity {
+public class ActivityMain extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_run);
+        setContentView(R.layout.activity_main);
+//        if (savedInstanceState == null) {
+//            getFragmentManager().beginTransaction()
+//                    .add(R.id., new FragmentCategory())
+//                    .commit();
+//        }
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.run, menu);
+        getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
 
@@ -34,4 +39,5 @@ public class RunActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

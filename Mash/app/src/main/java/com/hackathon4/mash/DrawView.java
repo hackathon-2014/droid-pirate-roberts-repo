@@ -11,7 +11,7 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import com.example.ericwood.mash.R;
+import com.hackathon4.mash.R;
 
 import java.util.ArrayList;
 import java.util.List;
