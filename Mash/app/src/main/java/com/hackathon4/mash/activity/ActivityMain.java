@@ -33,7 +33,7 @@ public class ActivityMain extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putString("category", "Boys");
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
 
@@ -47,7 +47,7 @@ public class ActivityMain extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putString("category", "Careers");
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent, 2);
             }
         });
 
@@ -61,7 +61,7 @@ public class ActivityMain extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putString("category", "Cities");
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent, 3);
             }
         });
 
@@ -75,9 +75,17 @@ public class ActivityMain extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putString("category", "Kids");
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent, 4);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        
+
     }
 
     @Override
