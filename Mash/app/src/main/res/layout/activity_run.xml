@@ -12,7 +12,8 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:id="@+id/runLayout">
 
 
         <RelativeLayout
@@ -65,37 +66,75 @@
 
         </RelativeLayout>
 
+        <com.hackathon4.mash.MyCategoryView
+            android:layout_width="320dp"
+            android:layout_height="180dp"
+            android:id="@+id/categoryNw"
+            android:layout_below="@id/layout_header"
+            />
+        <com.hackathon4.mash.MyCategoryView
+            android:layout_width="320dp"
+            android:layout_height="180dp"
+            android:layout_below="@id/categoryNw"
+            android:id="@+id/categorySw"
+            />
+        <com.hackathon4.mash.MyCategoryView
+            android:layout_width="320dp"
+            android:layout_height="180dp"
+            android:id="@+id/categoryNe"
+            android:layout_below="@id/layout_header"
+            android:layout_alignParentEnd="true"
+            />
+        <com.hackathon4.mash.MyCategoryView
+            android:layout_width="320dp"
+            android:layout_height="180dp"
+            android:id="@+id/categorySe"
+            android:layout_below="@id/categoryNe"
+            android:layout_alignParentEnd="true"
+            />
 
-        <fragment
-            android:name="com.hackathon4.mash.fragment.FragmentCategory"
-            android:id="@+id/fragmentCategoryNw"
-            android:layout_width="320dp"
-            android:layout_height="180dp"
-            android:layout_below="@id/layout_header"
-            />
-        <fragment
-            android:name="com.hackathon4.mash.fragment.FragmentCategory"
-            android:id="@+id/fragmentCategorySw"
-            android:layout_width="320dp"
-            android:layout_height="180dp"
-            android:layout_below="@id/fragmentCategoryNw"
-            />
-        <fragment
-            android:name="com.hackathon4.mash.fragment.FragmentCategory"
-            android:id="@+id/fragmentCategoryNe"
-            android:layout_width="320dp"
-            android:layout_height="180dp"
-            android:layout_below="@id/layout_header"
-            android:layout_alignParentEnd="true"
-            />
-        <fragment
-            android:name="com.hackathon4.mash.fragment.FragmentCategory"
-            android:id="@+id/fragmentCategorySe"
-            android:layout_width="320dp"
-            android:layout_height="180dp"
-            android:layout_below="@id/fragmentCategoryNe"
-            android:layout_alignParentEnd="true"
-            />
+
+        <!--<fragment-->
+            <!--android:name="com.hackathon4.mash.fragment.FragmentCategory"-->
+            <!--android:id="@+id/fragmentCategoryNwContainer"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:layout_below="@id/layout_header"-->
+            <!--android:tag="nw"-->
+            <!--/>-->
+        <!--<fragment-->
+            <!--android:name="com.hackathon4.mash.fragment.FragmentCategory"-->
+            <!--android:id="@+id/fragmentCategorySwContainer"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:layout_below="@id/fragmentCategoryNwContainer"-->
+            <!--android:tag="sw"-->
+            <!--/>-->
+        <!--<fragment-->
+            <!--android:name="com.hackathon4.mash.fragment.FragmentCategory"-->
+            <!--android:id="@+id/fragmentCategoryNeContainer"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:layout_below="@id/layout_header"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:tag="ne"-->
+            <!--/>-->
+        <!--<fragment-->
+            <!--android:name="com.hackathon4.mash.fragment.FragmentCategory"-->
+            <!--android:id="@+id/fragmentCategorySeContainer"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:layout_below="@id/fragmentCategoryNeContainer"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:tag="se"-->
+            <!--/>-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragmentCategory"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
+        </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/buttonStart"
