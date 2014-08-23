@@ -78,9 +78,9 @@ public class MyCategoryView extends RelativeLayout {
     public void addListItems(String[] items){
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter(getContext(),
-                android.R.layout.simple_list_item_1,
-                Arrays.asList(items));
+//        ArrayAdapter<String> adapter = new ArrayAdapter(getContext(),
+//                android.R.layout.simple_list_item_1,
+//                Arrays.asList(items));
 
         itemsLayout = (LinearLayout) findViewById(R.id.itemLayout);
 
