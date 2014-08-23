@@ -1,4 +1,4 @@
-package com.example.ericwood.mash;
+package com.hackathon4.mash;
 
 import android.app.Activity;
 import android.app.ActionBar;
