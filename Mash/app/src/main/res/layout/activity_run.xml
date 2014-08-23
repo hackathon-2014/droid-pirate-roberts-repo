@@ -290,4 +290,9 @@
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
+
+    <com.hackathon4.mash.DrawView
+        android:id="@+id/drawview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
 </FrameLayout>
