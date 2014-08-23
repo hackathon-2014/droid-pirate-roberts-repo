@@ -13,11 +13,10 @@
         android:background="@color/windowBackground"
         android:orientation="vertical">
 
-        <LinearLayout
+        <LinearLayout android:id="@+id/mash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            >
+            android:layout_centerHorizontal="true">
 
             <ImageView
                 android:id="@+id/mImage"
@@ -58,30 +57,47 @@
 
         <com.hackathon4.mash.MyCategoryView
             android:layout_width="320dp"
-            android:layout_height="180dp"
+            android:layout_height="240dp"
             android:id="@+id/categoryNw"
             android:layout_alignParentTop="true"
             />
         <com.hackathon4.mash.MyCategoryView
             android:layout_width="320dp"
-            android:layout_height="180dp"
+            android:layout_height="240dp"
             android:layout_below="@id/categoryNw"
             android:id="@+id/categorySw"
             />
         <com.hackathon4.mash.MyCategoryView
             android:layout_width="320dp"
-            android:layout_height="180dp"
+            android:layout_height="240dp"
             android:id="@+id/categoryNe"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             />
         <com.hackathon4.mash.MyCategoryView
             android:layout_width="320dp"
-            android:layout_height="180dp"
+            android:layout_height="240dp"
             android:id="@+id/categorySe"
             android:layout_below="@id/categoryNe"
             android:layout_alignParentEnd="true"
             />
+
+        <TextView android:id="@+id/magicNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40dp"
+            android:textColor="@color/penColor"
+            android:layout_below="@id/mash"
+            android:layout_centerHorizontal="true"/>
+
+        <Button android:id="@+id/startDrawing"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/button_background"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_below="@id/magicNumber"
+            android:layout_centerHorizontal="true"
+            android:text="@string/start_drawing"/>
 
     </RelativeLayout>
 

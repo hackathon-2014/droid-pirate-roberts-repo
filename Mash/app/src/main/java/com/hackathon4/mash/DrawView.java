@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -22,6 +24,9 @@ public class DrawView extends View implements View.OnTouchListener {
     private static final String TAG = DrawView.class.getName();
 
     private static final float STROKE_WIDTH = 10f;
+    private static final int MIN_TIME = 2;
+    private static final int MAX_TIME = 8;
+    private static final int STOP_DRAWING_MESSAGE = 0;
 
     List<Point> points = new ArrayList<Point>();
     Paint paint = new Paint();
@@ -29,9 +34,11 @@ public class DrawView extends View implements View.OnTouchListener {
     Point startIntersectPath;
     Point endIntersectPath;
 
-//    DrawingListener listener;
+    DrawingListener listener;
 
     boolean drawingEnabled = false;
+
+    Handler handler;
 
     public DrawView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -44,6 +51,23 @@ public class DrawView extends View implements View.OnTouchListener {
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(STROKE_WIDTH);
         paint.setColor(Color.argb(255,15,255,49));
+
+        handler = new Handler() {
+            /* (non-Javadoc)
+             * @see android.os.Handler#handleMessage(android.os.Message)
+             */
+            @Override
+            public void handleMessage(Message msg) {
+                if (msg.what == STOP_DRAWING_MESSAGE) {
+                    drawingEnabled = false;
+                    Log.d(TAG, "Drawing disabled");
+                    int intersectionsCount = computeIntersections();
+                    if (listener != null) {
+                        listener.drawingStopped(intersectionsCount);
+                    }
+                }
+            }
+        };
     }
 
     @Override
@@ -61,18 +85,22 @@ public class DrawView extends View implements View.OnTouchListener {
 
         canvas.drawPath(path, paint);
 
-        if (startIntersectPath != null && endIntersectPath != null) {
-            Path intersectPath = new Path();
-            intersectPath.moveTo(startIntersectPath.x, startIntersectPath.y);
-            intersectPath.lineTo(endIntersectPath.x, endIntersectPath.y);
-            canvas.drawPath(intersectPath,paint);
-        }
+//        if (startIntersectPath != null && endIntersectPath != null) {
+//            Path intersectPath = new Path();
+//            intersectPath.moveTo(startIntersectPath.x, startIntersectPath.y);
+//            intersectPath.lineTo(endIntersectPath.x, endIntersectPath.y);
+//            canvas.drawPath(intersectPath,paint);
+//        }
     }
 
     public boolean onTouch(View view, MotionEvent event) {
         if (drawingEnabled) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 clear();
+                int drawingTime = MIN_TIME + (int) (Math.random() * (MAX_TIME - MIN_TIME));
+                Log.d(TAG, "Drawing time: " + drawingTime);
+                Message msg = handler.obtainMessage(STOP_DRAWING_MESSAGE);
+                handler.sendMessageDelayed(msg, drawingTime * 1000);
             }
             if (event.getAction() != MotionEvent.ACTION_UP) {
                 for (int i = 0; i < event.getHistorySize(); i++) {
@@ -84,13 +112,15 @@ public class DrawView extends View implements View.OnTouchListener {
                 invalidate();
                 return true;
             }
+            else {
+                handler.removeMessages(STOP_DRAWING_MESSAGE);
+            }
         }
         return super.onTouchEvent(event);
     }
 
-    public int stopDrawing() {
-        drawingEnabled = false;
-        return computeIntersections();
+    public void startDrawing() {
+        drawingEnabled = true;
     }
 
     public void clear() {
@@ -183,9 +213,9 @@ public class DrawView extends View implements View.OnTouchListener {
         return intersectionsCount;
     }
 
-//    public void setListener(DrawingListener listener) {
-//        this.listener = listener;
-//    }
+    public void setListener(DrawingListener listener) {
+        this.listener = listener;
+    }
 
     private boolean intersects(Point start1, Point end1, Point start2, Point end2) {
 
@@ -262,9 +292,9 @@ public class DrawView extends View implements View.OnTouchListener {
         }
     }
 
-//    public interface DrawingListener {
-//        void drawingStopped(int numberOfIntersections);
-//    }
+    public interface DrawingListener {
+        void drawingStopped(int numberOfIntersections);
+    }
 
     class Point {
         float x, y;
