@@ -1,4 +1,4 @@
-package com.example.ericwood.mash;
+package com.hackathon4.mash;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import com.example.ericwood.mash.R;
 
 
 public class MashActivity extends Activity {
