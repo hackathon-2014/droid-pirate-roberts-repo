@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ public class MyCategoryView extends RelativeLayout {
 
     private ListView itemsView;
     private Button button;
+    private LinearLayout itemsLayout;
 
     public MyCategoryView(Context context) {
         super(context);
@@ -71,12 +73,18 @@ public class MyCategoryView extends RelativeLayout {
     }
 
     public void addListItems(String[] items){
+
+
         ArrayAdapter<String> adapter = new ArrayAdapter(getContext(),
                 android.R.layout.simple_list_item_1,
                 Arrays.asList(items));
 
-        itemsView = (ListView) findViewById(R.id.listView);
-        itemsView.setAdapter(adapter);
+        itemsLayout = (LinearLayout) findViewById(R.id.itemLayout);
 
+        for (String s: items){
+            TextView tv = new TextView(getContext());
+            tv.setText(s);
+            itemsLayout.addView(tv);
+        }
     }
 }
