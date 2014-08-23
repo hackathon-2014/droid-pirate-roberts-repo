@@ -21,13 +21,19 @@ public class ActivityEditCategory extends Activity {
         setContentView(R.layout.activity_edit_category);
 
         String category = getIntent().getStringExtra("category");
+        final Integer resultCode = getIntent().getIntExtra("resultCode", 1);
         TextView header = (TextView) findViewById(R.id.hdrCategory);
         header.setText(category);
 
-        final EditText field1 = (EditText) findViewById(R.id.categoryField1);
-        final EditText field2 = (EditText) findViewById(R.id.categoryField2);
-        final EditText field3 = (EditText) findViewById(R.id.categoryField3);
-        final EditText field4 = (EditText) findViewById(R.id.categoryField4);
+        EditText field1 = (EditText) findViewById(R.id.categoryField1);
+        EditText field2 = (EditText) findViewById(R.id.categoryField2);
+        EditText field3 = (EditText) findViewById(R.id.categoryField3);
+        EditText field4 = (EditText) findViewById(R.id.categoryField4);
+        final String[] strings = new String[4];
+        strings[0] = field1.getText().toString();
+        strings[1] = field2.getText().toString();
+        strings[2] = field3.getText().toString();
+        strings[3] = field4.getText().toString();
 
         Button saveButton = (Button) findViewById(R.id.saveCategory);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -36,11 +42,9 @@ public class ActivityEditCategory extends Activity {
                 Intent intent = new Intent(v.getContext(), ActivityMain.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Bundle bundle = new Bundle();
-                bundle.putString("item1", field1.getText().toString());
-                bundle.putString("item2", field2.getText().toString());
-                bundle.putString("item3", field3.getText().toString());
-                bundle.putString("item4", field4.getText().toString());
+                bundle.putStringArray("strings", strings);
                 intent.putExtras(bundle);
+                setResult(resultCode,intent);
                 startActivity(intent);
             }
         });

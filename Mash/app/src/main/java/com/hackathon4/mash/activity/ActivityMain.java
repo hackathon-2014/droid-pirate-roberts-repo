@@ -32,6 +32,7 @@ public class ActivityMain extends Activity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Bundle bundle = new Bundle();
                 bundle.putString("category", "Boys");
+                bundle.putInt("resultCode", 1);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 1);
             }
@@ -46,6 +47,7 @@ public class ActivityMain extends Activity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Bundle bundle = new Bundle();
                 bundle.putString("category", "Careers");
+                bundle.putInt("resultCode", 2);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 2);
             }
@@ -60,6 +62,7 @@ public class ActivityMain extends Activity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Bundle bundle = new Bundle();
                 bundle.putString("category", "Cities");
+                bundle.putInt("resultCode", 3);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 3);
             }
@@ -74,6 +77,7 @@ public class ActivityMain extends Activity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Bundle bundle = new Bundle();
                 bundle.putString("category", "Kids");
+                bundle.putInt("resultCode", 4);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, 4);
             }
@@ -108,7 +112,25 @@ public class ActivityMain extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        
+        if (resultCode == 1){
+            MyCategoryView categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
+            categoryViewNw.addListItems(data.getStringArrayExtra("strings"));
+        }
+
+        if (resultCode == 2){
+            MyCategoryView categoryViewSw = (MyCategoryView) findViewById(R.id.categorySw);
+            categoryViewSw.addListItems(data.getStringArrayExtra("strings"));
+        }
+
+        if (resultCode == 3){
+            MyCategoryView categoryViewNe = (MyCategoryView) findViewById(R.id.categoryNe);
+            categoryViewNe.addListItems(data.getStringArrayExtra("strings"));
+        }
+
+        if (resultCode == 4){
+            MyCategoryView categoryViewSe = (MyCategoryView) findViewById(R.id.categorySe);
+            categoryViewSe.addListItems(data.getStringArrayExtra("strings"));
+        }
 
     }
 
