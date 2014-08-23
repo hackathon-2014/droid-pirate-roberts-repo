@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/category_box_width"
-    android:layout_height="match_parent">
+    android:id="@+id/fragmentCategory"
+    android:layout_width="320dp"
+    android:layout_height="180dp"
+    android:layout_alignParentEnd="true"
+    android:layout_alignTop="@+id/relativeLayout3">
 
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="true"
+        android:text="Category"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/category_header_height"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/textView26"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+    </LinearLayout>
 </RelativeLayout>
