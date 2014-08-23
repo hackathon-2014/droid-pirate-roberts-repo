@@ -26,15 +26,17 @@
         <activity
             android:name=".DrawActivity"
             android:label="@string/title_activity_draw"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="landscape" />
         <activity
             android:name=".RunActivity"
             android:label="@string/title_activity_run"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="landscape" />
         <activity
             android:name=".activity.ActivityEditCategory"
-            android:label="@string/title_activity_activity_edit_category" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

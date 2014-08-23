@@ -1,6 +1,7 @@
 package com.hackathon4.mash;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -17,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.hackathon4.mash.activity.ActivityEditCategory;
 
 import org.w3c.dom.Text;
 
