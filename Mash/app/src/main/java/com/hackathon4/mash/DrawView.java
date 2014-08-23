@@ -27,7 +27,6 @@ public class DrawView extends View implements View.OnTouchListener {
     private static final int MIN_TIME = 2;
     private static final int MAX_TIME = 8;
     private static final int STOP_DRAWING_MESSAGE = 0;
-    private static final int CLEAR_DRAWING_MESSAGE = 1;
 
     List<Point> points = new ArrayList<Point>();
     Paint paint = new Paint();
