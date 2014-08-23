@@ -3,6 +3,9 @@ package com.hackathon4.mash.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,8 +18,22 @@ import com.hackathon4.mash.R;
 
 public class ActivityMain extends Activity {
 
+    private static final int CLEAR_DRAWING_MESSAGE = 0;
+
     private TextView tvMagicNumber;
     private DrawView drawView;
+
+    Handler handler = new Handler() {
+            /* (non-Javadoc)
+             * @see android.os.Handler#handleMessage(android.os.Message)
+             */
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == CLEAR_DRAWING_MESSAGE) {
+                drawView.clear();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +117,8 @@ public class ActivityMain extends Activity {
             @Override
             public void drawingStopped(int numberOfIntersections) {
                 tvMagicNumber.setText(String.valueOf(numberOfIntersections));
+                Message msg = handler.obtainMessage(CLEAR_DRAWING_MESSAGE);
+                handler.sendMessageDelayed(msg, 1000);
             }
         });
     }
