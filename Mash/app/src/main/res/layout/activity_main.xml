@@ -85,7 +85,6 @@
         <TextView android:id="@+id/magicNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:textSize="40dp"
             android:textColor="@color/penColor"
             android:layout_below="@id/mash"

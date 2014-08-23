@@ -36,7 +36,7 @@ public class DrawView extends View implements View.OnTouchListener {
 
     DrawingListener listener;
 
-    boolean drawingEnabled = true;
+    boolean drawingEnabled = false;
 
     Handler handler;
 
@@ -61,6 +61,10 @@ public class DrawView extends View implements View.OnTouchListener {
                 if (msg.what == STOP_DRAWING_MESSAGE) {
                     drawingEnabled = false;
                     Log.d(TAG, "Drawing disabled");
+                    int intersectionsCount = computeIntersections();
+                    if (listener != null) {
+                        listener.drawingStopped(intersectionsCount);
+                    }
                 }
             }
         };
@@ -110,12 +114,6 @@ public class DrawView extends View implements View.OnTouchListener {
             }
             else {
                 handler.removeMessages(STOP_DRAWING_MESSAGE);
-            }
-        }
-        else {
-            int intersectionsCount = computeIntersections();
-            if (listener != null) {
-                listener.drawingStopped(intersectionsCount);
             }
         }
         return super.onTouchEvent(event);

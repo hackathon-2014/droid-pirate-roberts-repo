@@ -7,11 +7,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.hackathon4.mash.DrawView;
 import com.hackathon4.mash.MyCategoryView;
 import com.hackathon4.mash.R;
 
 public class ActivityMain extends Activity {
+
+    private TextView tvMagicNumber;
+    private DrawView drawView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +83,25 @@ public class ActivityMain extends Activity {
         populateView(R.id.categorySw, "Job", new String[]{"Doctor", "Nurse", "Janitor", "Hobo"});
         populateView(R.id.categoryNe, "Car", new String[]{"Lamborghini", "Lexus", "Focus", "Gremlin"});
         populateView(R.id.categorySe, "City", new String[]{"Paris", "Charleston", "Albequequee", "North Pole"});
+
+        tvMagicNumber = (TextView) findViewById(R.id.magicNumber);
+
+        final Button btnGo = (Button) findViewById(R.id.startDrawing);
+        btnGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnGo.setVisibility(View.INVISIBLE);
+                startDrawing();
+            }
+        });
+
+        drawView = (DrawView) findViewById(R.id.drawview);
+        drawView.setListener(new DrawView.DrawingListener() {
+            @Override
+            public void drawingStopped(int numberOfIntersections) {
+                tvMagicNumber.setText(String.valueOf(numberOfIntersections));
+            }
+        });
     }
 
     @Override
@@ -100,6 +124,14 @@ public class ActivityMain extends Activity {
 
         view.setCategory(category);
         view.addListItems(items);
+    }
+
+    private void startDrawing() {
+        drawView.startDrawing();
+    }
+
+    private void calculateResults() {
+
     }
 
 
