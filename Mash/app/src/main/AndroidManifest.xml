@@ -8,27 +8,32 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.hackathon4.mash.activity.ActivityMain"
-            android:label="@string/app_name" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            android:name=".activity.ActivityMain"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.hackathon4.mash.DrawActivity"
-            android:label="@string/title_activity_draw" >
-        </activity>
-        <activity
-            android:name="com.hackathon4.mash.RunActivity"
-            android:label="@string/title_activity_run" >
-
+            android:name=".activity.ActivitySplash"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".DrawActivity"
+            android:label="@string/title_activity_draw"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".RunActivity"
+            android:label="@string/title_activity_run"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.ActivityEditCategory"
+            android:label="@string/title_activity_activity_edit_category" >
         </activity>
     </application>
 
