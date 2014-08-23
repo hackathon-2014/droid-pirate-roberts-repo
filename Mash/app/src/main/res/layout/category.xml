@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragmentCategory"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <Button android:id="@+id/addToCategory"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:background="@color/button_background"
+        android:layout_margin="@dimen/button_margin"
+        android:layout_alignParentTop="true"
+        android:text="@string/add_category1"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/addToCategory"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/itemLayout"></LinearLayout>
+
+    <!--<ListView-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="180dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:id="@+id/listView"-->
+        <!--android:layout_below="@+id/addToCategory"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+
+</RelativeLayout>

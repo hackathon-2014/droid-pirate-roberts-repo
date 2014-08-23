@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/category_box_width"
-    android:layout_height="match_parent">
+    android:id="@+id/fragmentCategory"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <TextView
+        android:id="@+id/categoryHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="true"
+
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/category_header_height"
+        android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/listView"
+        android:layout_below="@+id/categoryHeader"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

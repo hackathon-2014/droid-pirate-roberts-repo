@@ -12,11 +12,12 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:id="@+id/runLayout">
 
 
         <RelativeLayout
-            android:id="@+id/relativeLayout"
+            android:id="@+id/layout_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="false"
@@ -65,230 +66,93 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout4"
+        <com.hackathon4.mash.MyCategoryView
             android:layout_width="320dp"
             android:layout_height="180dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/relativeLayout">
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:text="Crushes"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="@dimen/category_header_height" />
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView6"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout3"
+            android:id="@+id/categoryNw"
+            android:layout_below="@id/layout_header"
+            />
+        <com.hackathon4.mash.MyCategoryView
             android:layout_width="320dp"
             android:layout_height="180dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/relativeLayout4">
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:text="Crushes"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="@dimen/category_header_height" />
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView16"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout5"
+            android:layout_below="@id/categoryNw"
+            android:id="@+id/categorySw"
+            />
+        <com.hackathon4.mash.MyCategoryView
             android:layout_width="320dp"
             android:layout_height="180dp"
+            android:id="@+id/categoryNe"
+            android:layout_below="@id/layout_header"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="false"
-            android:layout_alignStart="@+id/relativeLayout6"
-            android:layout_below="@+id/relativeLayout"
-            android:layout_centerHorizontal="true">
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentStart="false"
-                android:layout_alignParentTop="true"
-                android:text="Crushes"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="@dimen/category_header_height" />
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentStart="false"
-                android:layout_below="@+id/textView21"
-                android:layout_centerHorizontal="true"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView23"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView25"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout6"
+            />
+        <com.hackathon4.mash.MyCategoryView
             android:layout_width="320dp"
             android:layout_height="180dp"
+            android:id="@+id/categorySe"
+            android:layout_below="@id/categoryNe"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/relativeLayout3">
+            />
 
-            <TextView
-                android:id="@+id/textView26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentStart="false"
-                android:layout_alignParentTop="true"
-                android:text="Crushes"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="@dimen/category_header_height" />
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentStart="false"
-                android:layout_below="@+id/textView26"
-                android:orientation="vertical">
+        <!--<fragment-->
+            <!--android:name="com.hackathon4.mash.fragment.FragmentCategory"-->
+            <!--android:id="@+id/fragmentCategoryNwContainer"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:layout_below="@id/layout_header"-->
+            <!--android:tag="nw"-->
+            <!--/>-->
+        <!--<fragment-->
+            <!--android:name="com.hackathon4.mash.fragment.FragmentCategory"-->
+            <!--android:id="@+id/fragmentCategorySwContainer"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:layout_below="@id/fragmentCategoryNwContainer"-->
+            <!--android:tag="sw"-->
+            <!--/>-->
+        <!--<fragment-->
+            <!--android:name="com.hackathon4.mash.fragment.FragmentCategory"-->
+            <!--android:id="@+id/fragmentCategoryNeContainer"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:layout_below="@id/layout_header"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:tag="ne"-->
+            <!--/>-->
+        <!--<fragment-->
+            <!--android:name="com.hackathon4.mash.fragment.FragmentCategory"-->
+            <!--android:id="@+id/fragmentCategorySeContainer"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:layout_below="@id/fragmentCategoryNeContainer"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:tag="se"-->
+            <!--/>-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragmentCategory"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
 
-                <TextView
-                    android:id="@+id/textView27"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView28"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView29"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/textView30"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lauren Anderson"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </LinearLayout>
         </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GO!"
+            android:id="@+id/button"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:textSize="64dp" />
+    </RelativeLayout>
+
     </RelativeLayout>
 
     <com.hackathon4.mash.DrawView
