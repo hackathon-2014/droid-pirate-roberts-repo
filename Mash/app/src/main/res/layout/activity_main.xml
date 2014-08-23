@@ -13,11 +13,10 @@
         android:background="@color/windowBackground"
         android:orientation="vertical">
 
-        <LinearLayout
+        <LinearLayout android:id="@+id/mash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            >
+            android:layout_centerHorizontal="true">
 
             <ImageView
                 android:id="@+id/mImage"
@@ -91,6 +90,24 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:text="@string/add_category4" />
+
+        <TextView android:id="@+id/magicNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="40dp"
+            android:textColor="@color/penColor"
+            android:layout_below="@id/mash"
+            android:layout_centerHorizontal="true"/>
+
+        <Button android:id="@+id/startDrawing"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/button_background"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_below="@id/magicNumber"
+            android:layout_centerHorizontal="true"
+            android:text="@string/start_drawing"/>
 
     </RelativeLayout>
 
