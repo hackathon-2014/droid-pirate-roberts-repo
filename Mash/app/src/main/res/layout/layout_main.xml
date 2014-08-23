@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/windowBackground"
@@ -8,9 +9,10 @@
 
     <fragment
         android:id="@+id/roomListFragment"
-        class="com.hackathon4.mash."
+        class="com.hackathon4.mash.fragment.FragmentCategory"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        tools:layout="@layout/fragment_category">
 
         </fragment>
 
