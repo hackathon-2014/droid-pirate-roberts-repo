@@ -1,4 +1,4 @@
-import com.hackathon4.mash.Category;
+package com.hackathon4.mash;
 
 import java.util.ArrayList;
 import java.util.List;

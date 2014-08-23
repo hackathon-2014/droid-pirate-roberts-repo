@@ -23,6 +23,7 @@ import com.hackathon4.mash.activity.ActivityEditCategory;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -77,11 +78,6 @@ public class MyCategoryView extends RelativeLayout {
 
     public void addListItems(String[] items){
 
-
-//        ArrayAdapter<String> adapter = new ArrayAdapter(getContext(),
-//                android.R.layout.simple_list_item_1,
-//                Arrays.asList(items));
-
         itemsLayout = (LinearLayout) findViewById(R.id.itemLayout);
 
         for (String s: items){
@@ -94,4 +90,5 @@ public class MyCategoryView extends RelativeLayout {
             itemsLayout.addView(tv);
         }
     }
+
 }

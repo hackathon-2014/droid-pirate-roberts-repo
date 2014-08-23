@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.hackathon4.mash.Category;
 import com.hackathon4.mash.MyCategoryView;
+import com.hackathon4.mash.CategoryManager;
 import com.hackathon4.mash.R;
 
 public class ActivityEditCategory extends Activity {
@@ -20,7 +22,7 @@ public class ActivityEditCategory extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_category);
 
-        String category = getIntent().getStringExtra("category");
+        final String category = getIntent().getStringExtra("category");
         TextView header = (TextView) findViewById(R.id.hdrCategory);
         header.setText(category);
 
@@ -33,15 +35,33 @@ public class ActivityEditCategory extends Activity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Category category1 = new Category();
+                Category category2 = new Category();
+                Category category3 = new Category();
+                Category category4 = new Category();
+                category1.addItem(field1.getText().toString());
+                category2.addItem(field2.getText().toString());
+                category3.addItem(field3.getText().toString());
+                category4.addItem(field4.getText().toString());
+
+                CategoryManager categoryManager = CategoryManager.getInstance();
+
+                if (category.equals("Boys")) {
+                    categoryManager.addCategory(category1);
+                }
+                if (category.equals("Boys")) {
+                    categoryManager.addCategory(category2);
+                }
+                if (category.equals("Boys")) {
+                    categoryManager.addCategory(category3);
+                }
+                if (category.equals("Boys")) {
+                    categoryManager.addCategory(category4);
+                }
                 Intent intent = new Intent(v.getContext(), ActivityMain.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Bundle bundle = new Bundle();
-                bundle.putString("item1", field1.getText().toString());
-                bundle.putString("item2", field2.getText().toString());
-                bundle.putString("item3", field3.getText().toString());
-                bundle.putString("item4", field4.getText().toString());
-                intent.putExtras(bundle);
-                startActivity(intent);
+                setResult(RESULT_OK,intent);
+                finish();
             }
         });
     }
