@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.hackathon4.mash.fragment.FragmentCategory;
 
 import com.hackathon4.mash.R;
 
@@ -13,7 +12,7 @@ public class ActivityMain extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_main);
+        setContentView(R.layout.activity_main);
 //        if (savedInstanceState == null) {
 //            getFragmentManager().beginTransaction()
 //                    .add(R.id., new FragmentCategory())
