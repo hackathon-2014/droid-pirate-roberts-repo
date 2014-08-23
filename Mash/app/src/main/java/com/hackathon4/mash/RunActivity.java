@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.rexcrews.mash.R;
-
+import com.example.ericwood.mash.R;
 
 public class RunActivity extends Activity {
 
