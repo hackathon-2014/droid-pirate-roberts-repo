@@ -50,6 +50,7 @@ public class ActivityMain extends Activity {
         setContentView(R.layout.activity_main);
 
         categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
+        categoryViewNw.setText("Boys");
         Button catNwButton = (Button) categoryViewNw.findViewById(R.id.addToCategory);
         catNwButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +65,7 @@ public class ActivityMain extends Activity {
         });
 
         final MyCategoryView categoryViewSw = (MyCategoryView) findViewById(R.id.categorySw);
+        categoryViewSw.setText("Careers");
         Button catSwButton = (Button) categoryViewSw.findViewById(R.id.addToCategory);
         catSwButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +79,7 @@ public class ActivityMain extends Activity {
         });
 
         final MyCategoryView categoryViewNe = (MyCategoryView) findViewById(R.id.categoryNe);
+        categoryViewNe.setText("Cities");
         Button catNeButton = (Button) categoryViewNe.findViewById(R.id.addToCategory);
         catNeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +93,7 @@ public class ActivityMain extends Activity {
         });
 
         final MyCategoryView categoryViewSe = (MyCategoryView) findViewById(R.id.categorySe);
+        categoryViewSe.setText("Kids");
         Button catSeButton = (Button) categoryViewSe.findViewById(R.id.addToCategory);
         catSeButton.setOnClickListener(new View.OnClickListener() {
             @Override

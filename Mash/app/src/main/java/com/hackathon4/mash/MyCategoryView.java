@@ -63,6 +63,8 @@ public class MyCategoryView extends RelativeLayout {
 
         View view = inflate(getContext(), R.layout.category, null);
 
+        view.findViewById(R.id.addToCategory);
+
         a.recycle();
     }
 
@@ -93,6 +95,10 @@ public class MyCategoryView extends RelativeLayout {
         }
 
         return tvList;
+    }
+
+    public void setText(String text) {
+        ((Button)findViewById(R.id.addToCategory)).setText(text);
     }
 
 }
