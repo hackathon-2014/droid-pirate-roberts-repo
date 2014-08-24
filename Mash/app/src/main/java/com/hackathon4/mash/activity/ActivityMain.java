@@ -139,12 +139,40 @@ public class ActivityMain extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void populateView(int categoryId, String category, String[] items){
-        MyCategoryView view = (MyCategoryView) findViewById(categoryId);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        view.setCategory(category);
-        view.addListItems(items);
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            MyCategoryView categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
+
+             categoryViewNw.addListItems(data.getStringArrayListExtra("items"));
+        }
+
+        if (requestCode == 2) {
+            MyCategoryView categoryViewSw = (MyCategoryView) findViewById(R.id.categorySw);
+            categoryViewSw.addListItems(data.getStringArrayListExtra("items"));
+        }
+
+        if (requestCode == 3) {
+            MyCategoryView categoryViewNe = (MyCategoryView) findViewById(R.id.categoryNe);
+            categoryViewNe.addListItems(data.getStringArrayListExtra("items"));
+        }
+
+        if (requestCode == 4) {
+            MyCategoryView categoryViewSe = (MyCategoryView) findViewById(R.id.categorySe);
+            categoryViewSe.addListItems(data.getStringArrayListExtra("items"));
+        }
     }
+
+//    public void populateView(int categoryId, String category, String[] items){
+//        MyCategoryView view = (MyCategoryView) findViewById(categoryId);
+//
+//        view.setCategory(category);
+//        view.addListItems(items);
+//    }
 
     private void startDrawing() {
         drawView.startDrawing();

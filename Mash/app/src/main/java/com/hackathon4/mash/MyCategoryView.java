@@ -76,7 +76,7 @@ public class MyCategoryView extends RelativeLayout {
         button.setText(category);
     }
 
-    public void addListItems(String[] items){
+    public void addListItems(List<String> items){
 
         itemsLayout = (LinearLayout) findViewById(R.id.itemLayout);
 

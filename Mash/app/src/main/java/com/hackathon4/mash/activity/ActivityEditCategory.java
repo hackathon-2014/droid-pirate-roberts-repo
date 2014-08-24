@@ -15,6 +15,8 @@ import com.hackathon4.mash.MyCategoryView;
 import com.hackathon4.mash.CategoryManager;
 import com.hackathon4.mash.R;
 
+import java.util.ArrayList;
+
 public class ActivityEditCategory extends Activity {
 
     @Override
@@ -35,32 +37,34 @@ public class ActivityEditCategory extends Activity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Category category1 = new Category();
-                Category category2 = new Category();
-                Category category3 = new Category();
-                Category category4 = new Category();
-                category1.addItem(field1.getText().toString());
-                category2.addItem(field2.getText().toString());
-                category3.addItem(field3.getText().toString());
-                category4.addItem(field4.getText().toString());
-
-                CategoryManager categoryManager = CategoryManager.getInstance();
-
-                if (category.equals("Boys")) {
-                    categoryManager.addCategory(category1);
-                }
-                if (category.equals("Boys")) {
-                    categoryManager.addCategory(category2);
-                }
-                if (category.equals("Boys")) {
-                    categoryManager.addCategory(category3);
-                }
-                if (category.equals("Boys")) {
-                    categoryManager.addCategory(category4);
-                }
-                Intent intent = new Intent(v.getContext(), ActivityMain.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                setResult(RESULT_OK,intent);
+//                Category category = new Category();
+//                category1.addItem(field1.getText().toString());
+//                category2.addItem(field2.getText().toString());
+//                category3.addItem(field3.getText().toString());
+//                category4.addItem(field4.getText().toString());
+//
+//                CategoryManager categoryManager = CategoryManager.getInstance();
+//
+//                if (category.equals("Boys")) {
+//                    categoryManager.addCategory(category1);
+//                }
+//                if (category.equals("Boys")) {
+//                    categoryManager.addCategory(category2);
+//                }
+//                if (category.equals("Boys")) {
+//                    categoryManager.addCategory(category3);
+//                }
+//                if (category.equals("Boys")) {
+//                    categoryManager.addCategory(category4);
+//                }
+                ArrayList<String> items = new ArrayList<String>();
+                items.add(field1.getText().toString());
+                items.add(field2.getText().toString());
+                items.add(field3.getText().toString());
+                items.add(field4.getText().toString());
+                Intent intent = new Intent();
+                intent.putStringArrayListExtra("items", items);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
