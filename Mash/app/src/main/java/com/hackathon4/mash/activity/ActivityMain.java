@@ -2,6 +2,7 @@ package com.hackathon4.mash.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,12 +18,16 @@ import com.hackathon4.mash.DrawView;
 import com.hackathon4.mash.MyCategoryView;
 import com.hackathon4.mash.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ActivityMain extends Activity {
 
     private static final int CLEAR_DRAWING_MESSAGE = 0;
 
     private TextView tvMagicNumber;
     private DrawView drawView;
+    List<List<TextView>> tvList = new ArrayList<List<TextView>>();
 
     Handler handler = new Handler() {
             /* (non-Javadoc)
@@ -96,11 +101,7 @@ public class ActivityMain extends Activity {
                 startActivityForResult(intent, 4);
             }
         });
-//
-//        populateView(R.id.categoryNw, "Boys", new String[]{"Bob", "Tom", "Henry", "Joe"});
-//        populateView(R.id.categorySw, "Career", new String[]{"Doctor", "Nurse", "Janitor", "Hobo"});
-//        populateView(R.id.categoryNe, "Cities", new String[]{"Lamborghini", "Lexus", "Focus", "Gremlin"});
-//        populateView(R.id.categorySe, "Kids", new String[]{"1", "2", "3", "4"});
+
 
         tvMagicNumber = (TextView) findViewById(R.id.magicNumber);
 
@@ -122,6 +123,13 @@ public class ActivityMain extends Activity {
                 handler.sendMessageDelayed(msg, 1000);
             }
         });
+
+//        populateView(R.id.categoryNw, "Crushes", new String[]{"Bob", "Tom", "Henry", "Joe"});
+//        populateView(R.id.categorySw, "Job", new String[]{"Doctor", "Nurse", "Janitor", "Hobo"});
+//        populateView(R.id.categoryNe, "Car", new String[]{"Lamborghini", "Lexus", "Focus", "Gremlin"});
+//        populateView(R.id.categorySe, "City", new String[]{"Paris", "Charleston", "Albequequee", "North Pole"});
+
+        calculateResults(5);
     }
 
     @Override
@@ -178,8 +186,36 @@ public class ActivityMain extends Activity {
         drawView.startDrawing();
     }
 
-    private void calculateResults() {
-        
+    private void calculateResults(int magicNumber) {
+        int count = magicNumber;
+        while (true){
+            for (List<TextView> category: tvList){
+                if (category.size() == 1){
+                    continue;
+                } else if (category.size() < count) {
+                    count = count - category.size();
+                } else if (category.size() == count){
+                    //remove element
+                    category.get(count-1).setPaintFlags(category.get(count-1).getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                    category.remove(count-1);
+                    count=magicNumber;
+                } else if (category.size() > count){
+                    int priorSize = category.size();
+                    category.get(count-1).setPaintFlags(category.get(count-1).getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                    int removed = count - 1;
+                    category.remove(removed);
+                    count = magicNumber - (priorSize - (removed + 1));
+                } else {
+                    throw new UnknownError();
+                }
+            }
+            if (tvList.get(0).size()==1 &&
+                    tvList.get(1).size()==1 &&
+                    tvList.get(2).size()==1 &&
+                    tvList.get(3).size()==1){
+                break;
+            }
+        }
 
     }
 

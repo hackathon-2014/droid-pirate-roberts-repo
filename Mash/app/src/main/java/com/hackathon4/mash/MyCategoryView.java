@@ -76,7 +76,14 @@ public class MyCategoryView extends RelativeLayout {
         button.setText(category);
     }
 
+<<<<<<< HEAD
     public void addListItems(List<String> items){
+=======
+    public List<TextView> addListItems(String[] items){
+
+
+        List<TextView> tvList = new ArrayList<TextView>();
+>>>>>>> abfa88295247cfdc1282df1c2d332cc443bce2d0
 
         itemsLayout = (LinearLayout) findViewById(R.id.itemLayout);
 
@@ -86,9 +93,10 @@ public class MyCategoryView extends RelativeLayout {
             TextView tv = //new TextView(getContext());
                     (TextView ) li.inflate(R.layout.item_template, null);
             tv.setText(s);
-
+            tvList.add(tv);
             itemsLayout.addView(tv);
         }
+        return tvList;
     }
 
 }
