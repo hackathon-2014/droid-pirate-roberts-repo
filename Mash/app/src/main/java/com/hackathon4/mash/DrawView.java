@@ -124,7 +124,9 @@ public class DrawView extends View implements View.OnTouchListener {
     }
 
     public void clear() {
+        Log.d(TAG, "Clearing drawing");
         points.clear();
+        invalidate();
         startIntersectPath = null;
         endIntersectPath = null;
     }
