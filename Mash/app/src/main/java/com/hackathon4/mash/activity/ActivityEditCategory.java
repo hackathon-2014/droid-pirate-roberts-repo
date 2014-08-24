@@ -33,6 +33,31 @@ public class ActivityEditCategory extends Activity {
         final EditText field3 = (EditText) findViewById(R.id.categoryField3);
         final EditText field4 = (EditText) findViewById(R.id.categoryField4);
 
+        if (category.equalsIgnoreCase("Boys")) {
+            field1.setText("Bob");
+            field2.setText("Tim");
+            field3.setText("Henry");
+            field4.setText("Eric");
+        }
+        else if (category.equalsIgnoreCase("Careers")) {
+            field1.setText("Doctor");
+            field2.setText("Nurse");
+            field3.setText("Janitor");
+            field4.setText("Pirate");
+        }
+        else if (category.equalsIgnoreCase("Cities")) {
+            field1.setText("Charleston");
+            field2.setText("Miami");
+            field3.setText("New York");
+            field4.setText("Los Angeles");
+        }
+        else if (category.equalsIgnoreCase("Kids")) {
+            field1.setText("1");
+            field2.setText("2");
+            field3.setText("4");
+            field4.setText("19");
+        }
+
         Button saveButton = (Button) findViewById(R.id.saveCategory);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

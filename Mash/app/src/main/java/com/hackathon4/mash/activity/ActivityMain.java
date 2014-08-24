@@ -30,6 +30,8 @@ public class ActivityMain extends Activity {
     private DrawView drawView;
     List<List<TextView>> tvList = new ArrayList<List<TextView>>();
 
+    private MyCategoryView categoryViewNw;
+
     Handler handler = new Handler() {
             /* (non-Javadoc)
              * @see android.os.Handler#handleMessage(android.os.Message)
@@ -47,16 +49,17 @@ public class ActivityMain extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final MyCategoryView categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
+        categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
         Button catNwButton = (Button) categoryViewNw.findViewById(R.id.addToCategory);
         catNwButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("category", "Boys");
-                intent.putStringArrayListExtra("items", getItems(categoryViewNw));
-                startActivityForResult(intent, 1);
+                categoryEdit(categoryViewNw, "Boys");
+//                Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                intent.putExtra("category", "Boys");
+//                intent.putStringArrayListExtra("items", getItems(categoryViewNw));
+//                startActivityForResult(intent, 1);
             }
         });
 
@@ -118,6 +121,7 @@ public class ActivityMain extends Activity {
                 tvMagicNumber.setText(String.valueOf(numberOfIntersections));
                 Message msg = handler.obtainMessage(CLEAR_DRAWING_MESSAGE);
                 handler.sendMessageDelayed(msg, 1000);
+                calculateResults(numberOfIntersections);
             }
         });
 
@@ -127,6 +131,14 @@ public class ActivityMain extends Activity {
 //        populateView(R.id.categorySe, "City", new String[]{"Paris", "Charleston", "Albequequee", "North Pole"});
 
 //        calculateResults(5);
+    }
+
+    private void categoryEdit(MyCategoryView v, String name) {
+        Intent intent = new Intent(categoryViewNw.getContext(), ActivityEditCategory.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("category", name);
+        intent.putStringArrayListExtra("items", getItems(categoryViewNw));
+        startActivityForResult(intent, 1);
     }
 
     @Override
@@ -152,23 +164,22 @@ public class ActivityMain extends Activity {
 
         if (requestCode == 1) {
             MyCategoryView categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
-
-             categoryViewNw.addListItems(data.getStringArrayListExtra("items"));
+             tvList.add(categoryViewNw.addListItems(data.getStringArrayListExtra("items")));
         }
 
         if (requestCode == 2) {
             MyCategoryView categoryViewSw = (MyCategoryView) findViewById(R.id.categorySw);
-            categoryViewSw.addListItems(data.getStringArrayListExtra("items"));
+            tvList.add(categoryViewSw.addListItems(data.getStringArrayListExtra("items")));
         }
 
         if (requestCode == 3) {
             MyCategoryView categoryViewNe = (MyCategoryView) findViewById(R.id.categoryNe);
-            categoryViewNe.addListItems(data.getStringArrayListExtra("items"));
+            tvList.add(categoryViewNe.addListItems(data.getStringArrayListExtra("items")));
         }
 
         if (requestCode == 4) {
             MyCategoryView categoryViewSe = (MyCategoryView) findViewById(R.id.categorySe);
-            categoryViewSe.addListItems(data.getStringArrayListExtra("items"));
+            tvList.add(categoryViewSe.addListItems(data.getStringArrayListExtra("items")));
         }
     }
 
