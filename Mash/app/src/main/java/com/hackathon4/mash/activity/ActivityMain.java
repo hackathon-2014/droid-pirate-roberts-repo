@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.hackathon4.mash.CategoryManager;
@@ -46,58 +47,54 @@ public class ActivityMain extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MyCategoryView categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
+        final MyCategoryView categoryViewNw = (MyCategoryView) findViewById(R.id.categoryNw);
         Button catNwButton = (Button) categoryViewNw.findViewById(R.id.addToCategory);
         catNwButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Bundle bundle = new Bundle();
-                bundle.putString("category", "Boys");
-                intent.putExtras(bundle);
+                intent.putExtra("category", "Boys");
+                intent.putStringArrayListExtra("items", getItems(categoryViewNw));
                 startActivityForResult(intent, 1);
             }
         });
 
-        MyCategoryView categoryViewSw = (MyCategoryView) findViewById(R.id.categorySw);
+        final MyCategoryView categoryViewSw = (MyCategoryView) findViewById(R.id.categorySw);
         Button catSwButton = (Button) categoryViewSw.findViewById(R.id.addToCategory);
         catSwButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Bundle bundle = new Bundle();
-                bundle.putString("category", "Careers");
-                intent.putExtras(bundle);
+                intent.putExtra("category", "Careers");
+                intent.putStringArrayListExtra("items", getItems(categoryViewSw));
                 startActivityForResult(intent, 2);
             }
         });
 
-        MyCategoryView categoryViewNe = (MyCategoryView) findViewById(R.id.categoryNe);
+        final MyCategoryView categoryViewNe = (MyCategoryView) findViewById(R.id.categoryNe);
         Button catNeButton = (Button) categoryViewNe.findViewById(R.id.addToCategory);
         catNeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Bundle bundle = new Bundle();
-                bundle.putString("category", "Cities");
-                intent.putExtras(bundle);
+                intent.putExtra("category", "Cities");
+                intent.putStringArrayListExtra("items", getItems(categoryViewNe));
                 startActivityForResult(intent, 3);
             }
         });
 
-        MyCategoryView categoryViewSe = (MyCategoryView) findViewById(R.id.categorySe);
+        final MyCategoryView categoryViewSe = (MyCategoryView) findViewById(R.id.categorySe);
         Button catSeButton = (Button) categoryViewSe.findViewById(R.id.addToCategory);
         catSeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ActivityEditCategory.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Bundle bundle = new Bundle();
-                bundle.putString("category", "Kids");
-                intent.putExtras(bundle);
+                intent.putExtra("category", "Kids");
+                intent.putStringArrayListExtra("items", getItems(categoryViewSe));
                 startActivityForResult(intent, 4);
             }
         });
@@ -129,7 +126,7 @@ public class ActivityMain extends Activity {
 //        populateView(R.id.categoryNe, "Car", new String[]{"Lamborghini", "Lexus", "Focus", "Gremlin"});
 //        populateView(R.id.categorySe, "City", new String[]{"Paris", "Charleston", "Albequequee", "North Pole"});
 
-        calculateResults(5);
+//        calculateResults(5);
     }
 
     @Override
@@ -173,6 +170,22 @@ public class ActivityMain extends Activity {
             MyCategoryView categoryViewSe = (MyCategoryView) findViewById(R.id.categorySe);
             categoryViewSe.addListItems(data.getStringArrayListExtra("items"));
         }
+    }
+
+    private ArrayList<String> getItems(MyCategoryView category) {
+        final EditText field1 = (EditText) category.findViewById(R.id.categoryField1);
+        final EditText field2 = (EditText) category.findViewById(R.id.categoryField2);
+        final EditText field3 = (EditText) category.findViewById(R.id.categoryField3);
+        final EditText field4 = (EditText) category.findViewById(R.id.categoryField4);
+
+        ArrayList<String> items = new ArrayList<String>();
+
+        if (field1 != null) items.add(field1.getText().toString());
+        if (field2 != null) items.add(field2.getText().toString());
+        if (field3 != null) items.add(field3.getText().toString());
+        if (field4 != null) items.add(field4.getText().toString());
+
+        return items;
     }
 
 //    public void populateView(int categoryId, String category, String[] items){

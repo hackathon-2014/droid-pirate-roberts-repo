@@ -76,15 +76,10 @@ public class MyCategoryView extends RelativeLayout {
         button.setText(category);
     }
 
-<<<<<<< HEAD
-    public void addListItems(List<String> items){
-=======
-    public List<TextView> addListItems(String[] items){
 
+    public void addListItems(List<String> items){
 
         List<TextView> tvList = new ArrayList<TextView>();
->>>>>>> abfa88295247cfdc1282df1c2d332cc443bce2d0
-
         itemsLayout = (LinearLayout) findViewById(R.id.itemLayout);
 
         for (String s: items){
@@ -96,7 +91,6 @@ public class MyCategoryView extends RelativeLayout {
             tvList.add(tv);
             itemsLayout.addView(tv);
         }
-        return tvList;
     }
 
 }
